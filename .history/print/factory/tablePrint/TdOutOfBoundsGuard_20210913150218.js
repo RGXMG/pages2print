@@ -88,7 +88,7 @@ export default class TdOutOfBoundsGuard {
     // 父元素的拷贝
     const parentElementCopy = parentElement.cloneNode();
     // 子元素集合
-    const childNodes = parentElement.childNodes || [];
+    const childNodes = parentElement.childNodes || 【】;
     // 精度控制
     const precision = 50;
     let heightSum = 0;

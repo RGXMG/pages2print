@@ -85,15 +85,30 @@ export default class TdOutOfBoundsGuard {
    * @param accommodateValue
    */
   decomposeElementChildren(parentElement, accommodateValue) {
-    // 父元素的拷贝
-    const parentElementCopy = parentElement.cloneNode();
-    // 子元素集合
-    const childNodes = parentElement.childNodes || [];
-    // 精度控制
+
     const precision = 50;
     let heightSum = 0;
     // 分开的元素
     let separateElements = { pre: [], next: [] };
+
+    /**
+     * 处理text类型的元素
+     */
+    const handleTextTypeElement = () => {
+      const [preNode, nextNode] = this.decomposeTextNode(
+        parentElementCopy,
+        node,
+        precision,
+        accommodateValue,
+        heightSum
+      );
+      separateElements.pre.push(preNode);
+      separateElements.next.push(nextNode);
+    };
+
+    // 父元素的拷贝
+    const parentElementCopy = parentElement.cloneNode();
+    const childNodes = parentElement.childNodes;
     let hasResult = false;
 
     for (const node of childNodes) {
@@ -112,6 +127,12 @@ export default class TdOutOfBoundsGuard {
       // 当前节点计算后的sum高度的高度差
       const currentNodeSumHeightDiffHeight =
         currentNodeSumHeight - accommodateValue;
+
+      // 高度差大于precision
+      // 分解子元素
+      if (currentNodeSumHeightDiffHeight > 0) {
+        this.decomposeElementChildren(node, accommodateValue);
+      }
 
       // 高度差小于precision
       if (currentNodeSumHeightDiffHeight < 0) {
@@ -132,10 +153,7 @@ export default class TdOutOfBoundsGuard {
         );
         separateElements.pre.push(preNode);
         separateElements.next.push(nextNode);
-        continue;
       }
-
-      const {} = this.decomposeElementChildren(node, accommodateValue);
     }
 
     return separateElements;

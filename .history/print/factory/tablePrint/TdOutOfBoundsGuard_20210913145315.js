@@ -87,15 +87,12 @@ export default class TdOutOfBoundsGuard {
   decomposeElementChildren(parentElement, accommodateValue) {
     // 父元素的拷贝
     const parentElementCopy = parentElement.cloneNode();
-    // 子元素集合
-    const childNodes = parentElement.childNodes || [];
-    // 精度控制
+    const childNodes = parentElement.childNodes;
     const precision = 50;
     let heightSum = 0;
     // 分开的元素
     let separateElements = { pre: [], next: [] };
     let hasResult = false;
-
     for (const node of childNodes) {
       if (hasResult) {
         separateElements.next.push(node);
@@ -112,6 +109,12 @@ export default class TdOutOfBoundsGuard {
       // 当前节点计算后的sum高度的高度差
       const currentNodeSumHeightDiffHeight =
         currentNodeSumHeight - accommodateValue;
+
+      // 高度差大于precision
+      // 分解子元素
+      if (currentNodeSumHeightDiffHeight > 0) {
+        this.decomposeElementChildren(node, );
+      }
 
       // 高度差小于precision
       if (currentNodeSumHeightDiffHeight < 0) {
@@ -132,10 +135,7 @@ export default class TdOutOfBoundsGuard {
         );
         separateElements.pre.push(preNode);
         separateElements.next.push(nextNode);
-        continue;
       }
-
-      const {} = this.decomposeElementChildren(node, accommodateValue);
     }
 
     return separateElements;
