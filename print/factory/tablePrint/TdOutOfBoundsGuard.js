@@ -27,23 +27,49 @@ export default class TdOutOfBoundsGuard {
    * 尝试创建td单元格到行中去
    * @param tdMeta
    * @param index
-   * @param trMeta
    * @param trElement
    */
-  tryCreateTdElement2Tr(tdMeta, index, trMeta, trElement) {
+  tryCreateTdElement2Tr(tdMeta, index, trElement) {
     const tdElement = createTd(tdMeta);
-    // 新的tr元数据
-    // 越界时创建
-    let newTrMeta = null;
-    // 被重写的tdMeta
     // 越界时重写
+    let rewriteTdElement = tdElement;
     let rewriteTdMeta = tdMeta;
-    trMeta.append(tdElement);
-    const { isOutOfBounds, height, accommodateValue } =
-      this.validateOutOfBounds();
+    // 新的td元数据
+    // 越界时创建
+    let rebuildTdMeta = { pre: { ...tdMeta }, next: { ...tdMeta } };
+    trElement.append(tdElement);
+    const { isOutOfBounds, accommodateValue } = this.validateOutOfBounds();
+
+    // 超出界限
+    // 1. 分解内部元素
+    // 2. 分出前半部分以及后半部分
+    // 3. 重写rebuildTdMeta
     if (isOutOfBounds) {
+      tdElement.remove();
+      const { pre, next } = this.decomposeElementChildren(
+        tdElement,
+        accommodateValue
+      );
+      rebuildTdMeta.pre.childNodes = pre;
+      rebuildTdMeta.pre.content = pre.reduce(
+        (m, p) => ((m += p.outerHTML), m),
+        ""
+      );
+      rebuildTdMeta.next.childNodes = next;
+      rebuildTdMeta.next.content = pre.reduce(
+        (m, p) => ((m += p.outerHTML), m),
+        ""
+      );
+      rewriteTdElement = createTd({ ...tdMeta, content: "" });
+      rebuildTdMeta.pre.forEach((p) => rewriteTdElement.append(p));
+      rewriteTdMeta = rebuildTdMeta.pre;
     }
-    return { isOutOfBounds, rewriteTdMeta, newTrMeta };
+    return {
+      isOutOfBounds,
+      rewriteTdMeta,
+      rewriteTdElement,
+      rebuildTdMeta,
+    };
   }
 
   /**
@@ -85,8 +111,6 @@ export default class TdOutOfBoundsGuard {
    * @param accommodateValue
    */
   decomposeElementChildren(parentElement, accommodateValue) {
-    // 父元素的拷贝
-    const parentElementCopy = parentElement.cloneNode();
     // 子元素集合
     const childNodes = parentElement.childNodes || [];
     // 精度控制
@@ -124,7 +148,7 @@ export default class TdOutOfBoundsGuard {
 
       if (isTextNode(node)) {
         const [preNode, nextNode] = this.decomposeTextNode(
-          parentElementCopy,
+          parentElement.cloneNode(),
           node,
           precision,
           accommodateValue,
@@ -135,7 +159,20 @@ export default class TdOutOfBoundsGuard {
         continue;
       }
 
-      const {} = this.decomposeElementChildren(node, accommodateValue);
+      // 循环参数
+      const { pre, next } = this.decomposeElementChildren(
+        node,
+        accommodateValue
+      );
+      // 放入之前的
+      const nodeCopyOfPre = node.cloneNode();
+      pre.forEach((p) => nodeCopyOfPre.appendChild(p));
+      separateElements.pre.push(nodeCopyOfPre);
+
+      // 放入之后的
+      const nodeCopyOfNext = node.cloneNode();
+      next.forEach((p) => nodeCopyOfNext.appendChild(p));
+      separateElements.next.push(nodeCopyOfNext);
     }
 
     return separateElements;

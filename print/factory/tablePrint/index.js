@@ -100,17 +100,12 @@ export default class TablePrint {
     let table = create();
     for (let i = 0; i < tableMeta.length; i++) {
       const trMeta = tableMeta[i];
-      const {
-        isOutOfBounds,
-        strandedHeight,
-        rewriteTrMeta,
-        rewriteTrElement,
-        newTrMeta,
-      } = this.trOutOfBoundsGuardInstance.tryCreateTrElement2Table(
-        trMeta,
-        i,
-        tableMeta
-      );
+      const { isOutOfBounds, strandedHeight, rewriteTrMeta, rewriteTrElement } =
+        this.trOutOfBoundsGuardInstance.tryCreateTrElement2Table(
+          trMeta,
+          i,
+          tableMeta
+        );
 
       // 行超出边界
       // 1. 创建新的table元素容器
@@ -123,11 +118,12 @@ export default class TablePrint {
         table = create(strandedHeight);
         // 为新创建的table元素容器添加超出边界的行
         this.printPageTableElement.append(rewriteTrElement);
-      }
-
-      // 存在新生成的meta
-      if (newTrMeta) {
-        tableMeta.splice(i + 1, 0, newTrMeta);
+        // 存在待提交的新tr元数据
+        const newTrMeta =
+          this.trOutOfBoundsGuardInstance.getWaitCommitNewTrMeta();
+        if (newTrMeta) {
+          tableMeta.splice(i + 1, 0, newTrMeta);
+        }
       }
 
       table.push(rewriteTrMeta);

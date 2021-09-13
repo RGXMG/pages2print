@@ -24,6 +24,8 @@ export default class TrOutOfBoundsGuard {
   prevTrElementBoundingClientTop;
   // 单元格越界守卫实例
   tdOutOfBoundsGuardInstance;
+  // 待提交的新的tr元数据
+  waitCommitNewTrMeta;
 
   constructor(pageHeightPixelSize, initPrintPageContainerElement) {
     this.pageHeightPixelSize = pageHeightPixelSize;
@@ -36,44 +38,11 @@ export default class TrOutOfBoundsGuard {
   }
 
   /**
-   * 设置表格元素容器
-   * @param tableElement
+   * 获取待提交的新tr元数据
+   * 1. 即获取因为前面分页导致的新创建的tr行
    */
-  setTableElementContainer(tableElement) {
-    this.printPageTableElement = tableElement;
-  }
-
-  /**
-   * 跨页处理
-   * 1. 进行升级页面pix大小
-   * 2. 将下一个表格的margin进行设置
-   */
-  acrossThePageUpgrade() {
-    this.pageHeightPixelSize *= 2;
-  }
-
-  /**
-   * 验证是否超出边界
-   * 1. 元素的底部到顶部的距离 与 页面的高度的关系
-   * @param trElement
-   * @param trMeta
-   */
-  validateOutOfBounds(trElement, trMeta) {
-    const { top, height } = trElement.getBoundingClientRect();
-    // tr距离页面页面顶部的距离 = 距离窗口的高度 + 自身的高度 + 滚动的高度
-    const trBottom2Top =
-      top + height + this.printPageContainerElement.scrollTop;
-    const res = [trBottom2Top > this.pageHeightPixelSize, trBottom2Top];
-    console.log(
-      trMeta,
-      "top:::",
-      top,
-      "height",
-      height,
-      this.pageHeightPixelSize,
-      top + height > this.pageHeightPixelSize
-    );
-    return res;
+  getWaitCommitNewTrMeta() {
+    return this.waitCommitNewTrMeta;
   }
 
   /**
@@ -184,6 +153,47 @@ export default class TrOutOfBoundsGuard {
   }
 
   /**
+   * 设置表格元素容器
+   * @param tableElement
+   */
+  setTableElementContainer(tableElement) {
+    this.printPageTableElement = tableElement;
+  }
+
+  /**
+   * 跨页处理
+   * 1. 进行升级页面pix大小
+   * 2. 将下一个表格的margin进行设置
+   */
+  acrossThePageUpgrade() {
+    this.pageHeightPixelSize *= 2;
+  }
+
+  /**
+   * 验证是否超出边界
+   * 1. 元素的底部到顶部的距离 与 页面的高度的关系
+   * @param trElement
+   * @param trMeta
+   */
+  validateOutOfBounds(trElement, trMeta) {
+    const { top, height } = trElement.getBoundingClientRect();
+    // tr距离页面页面顶部的距离 = 距离窗口的高度 + 自身的高度 + 滚动的高度
+    const trBottom2Top =
+      top + height + this.printPageContainerElement.scrollTop;
+    const res = [trBottom2Top > this.pageHeightPixelSize, trBottom2Top];
+    console.log(
+      trMeta,
+      "top:::",
+      top,
+      "height",
+      height,
+      this.pageHeightPixelSize,
+      top + height > this.pageHeightPixelSize
+    );
+    return res;
+  }
+
+  /**
    * 根据trMeta创建td元素
    * 1. 创建
    * 2. 添加
@@ -195,13 +205,19 @@ export default class TrOutOfBoundsGuard {
     // 创建元素
     const trElement = createTr();
     trMeta.forEach((tdMeta, index, trMeta) => {
-      const { isOutOfBounds, rewriteTdMeta, rewriteTdElement } =
+      const { isOutOfBounds, rewriteTdMeta, rewriteTdElement, rebuildTdMeta } =
         this.tdOutOfBoundsGuardInstance.tryCreateTdElement2Tr(
           tdMeta,
           index,
           trMeta,
           trElement
         );
+
+      // td发生越界
+      // 1. 创建新的trMeta进行按位置接受
+      if (isOutOfBounds) {
+        this.waitCommitNewTrMeta[index] = rebuildTdMeta.next
+      }
     });
     return trElement;
   }
