@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 2mm;
+      }
+
+      @media print {
+        root,
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        table {
+          font-size: 2mm;
+        }
+
+        tr {
+          page-break-inside: avoid;
+          page-break-after: auto;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+
+        tr,
+        td {
+          border: solid 1mm #333;
+        }
+
+        td {
+          width: 50mm;
+        }
+      }
+
+      root,
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        width: 100%;
+        font-size: 2mm;
+        border-collapse: collapse;
+      }
+
+      tr,
+      td {
+        border: solid 1mm #333;
+      }
+
+      td {
+        width: 50mm;
+      }
+    </style>
+    <!--    <script src="./print.js"></script>-->
+    <script type="module" src="./test.js"></script>
+  </head>
+  <body style="width: 210mm">
+    <button onclick="printFactoru()">点击打印</button>
+  </body>
+</html>
