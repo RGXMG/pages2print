@@ -96,6 +96,7 @@ module.exports = {
     path: path.join(__dirname, './build'),
     filename: 'bundle.js',
   },
+  devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.vue', '.jsx'],
     alias: generatorAliasEntries(aliasConfig),
