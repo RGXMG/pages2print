@@ -24,8 +24,18 @@ export default {
       const json = [
         // 45
         ['cell1', 'cell 2', 'cell 3', 'cell 4', 'cell 5'],
-        [{ colspan: 0, rowspan: 4, content: 'cell 6' }, 'cell 7', 'cell 8', 'cell 9', 'cell 10'],
-        [null, 'cell 11', { colspan: 0, rowspan: 4, content: 'cell 12' }, 'cell 13', 'cell 14'],
+        [
+          {
+            rowspan: 4,
+            content:
+              'cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6',
+          },
+          'cell 7',
+          'cell 8',
+          'cell 9',
+          'cell 10',
+        ],
+        [null, 'cell 11', { rowspan: 4, content: 'cell 12' }, 'cell 13', 'cell 14'],
         [null, 'cell 15', null, 'cell 16', 'cell 17'],
         [null, 'cell 2cell', null, 'cell 19', 'cell 20'],
         ['cell 21', 'cell 22', null, 'cell 23', 'cell 24'],
