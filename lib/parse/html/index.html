@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="UTF-8" />
+    <script src="./index.js"></script>
+    <style>
+      table,
+      th,
+      td {
+        padding: 5px;
+        border: 1px solid black;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="parseTable(document.getElementById('table'))">开始处理</button>
+    <table id="table" class="editorTeble" data-rc="39-8" border="0" cellpadding="0" cellspacing="0">
+      <colgroup>
+        <col width="20px" />
+        <col width="20px" />
+        <col width="20px" />
+        <col width="20px" />
+        <col width="20px" />
+        <col width="20px" />
+        <col width="20px" />
+        <col width="20px" />
+      </colgroup>
+      <tbody style="text-align: center; vertical-align: middle">
+        <tr class="editorTebleTr editorTebleTr-0" data-type="tr" data-index="0">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="2"
+            contenteditable="true"
+          >
+            项目
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            style="text-align: center; vertical-align: middle; width: 110px"
+            rowspan="2"
+            contenteditable="true"
+          >
+            内容
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            style="text-align: center; vertical-align: middle"
+            colspan="6"
+            contenteditable="true"
+          >
+            时间及分值
+          </td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-1" data-type="tr" data-index="1">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+            colspan="2"
+          >
+            手术区分
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-2" data-type="tr" data-index="2">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="width: 40px; text-align: center; vertical-align: middle"
+            rowspan="7"
+            contenteditable="true"
+          >
+            高危导管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            style="width: 110px; text-align: left; vertical-align: top"
+            contenteditable="true"
+          >
+            气管插管/切开
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-3" data-type="tr" data-index="3">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            T管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+            rowspan="4"
+          >
+            恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-4" data-type="tr" data-index="4">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+            rowspan="2"
+          >
+            脑室外引流管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+            rowspan="2"
+          >
+            脑室外引流管结果脑室外引流管结果脑室外引流管结果脑室外引流管结果脑室外引流管结果脑室外引流管结果脑室外引流管结果脑室外引流管结果脑室外引流管结果脑室外引流管结果
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          >
+            术前：
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          >
+            恢复良好恢复良好恢复良好
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-5" data-type="tr" data-index="5">
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          >
+            术后：
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          >
+            恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好恢复良好
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-6" data-type="tr" data-index="6">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            胸腔引流管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-7" data-type="tr" data-index="7">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            透析管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-8" data-type="tr" data-index="8">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            其他
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-9" data-type="tr" data-index="9">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="6"
+            contenteditable="true"
+          >
+            中危导管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            CVC/PICC
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-10" data-type="tr" data-index="10">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            伤口引流管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-11" data-type="tr" data-index="11">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            造瘘管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-12" data-type="tr" data-index="12">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            呼吸机管道
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-13" data-type="tr" data-index="13">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+            rowspan="2"
+          >
+            胃肠减压管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          >
+            胃肠减压管胃肠减压管胃肠减压管胃肠减压管胃肠减压管胃肠减压管胃肠减压管胃肠减压管胃肠减压管胃肠减压管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-14" data-type="tr" data-index="14">
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-15" data-type="tr" data-index="15">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="3"
+            contenteditable="true"
+          >
+            低危导管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            普通尿管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+            rowspan="3"
+            colspan="3"
+          >
+            70岁以上70岁以上70岁以上70岁以上
+          </td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-16" data-type="tr" data-index="16">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            普通胃管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+            colspan="3"
+          >
+            普通氧气管普通氧气管
+          </td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-17" data-type="tr" data-index="17">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            普通氧气管
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-18" data-type="tr" data-index="18">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="2"
+            contenteditable="true"
+          >
+            年龄
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            7岁以下
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-19" data-type="tr" data-index="19">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            70岁以上
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-20" data-type="tr" data-index="20">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="5"
+            contenteditable="true"
+          >
+            意识评分
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+            rowspan="4"
+          >
+            清醒
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-21" data-type="tr" data-index="21">
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-22" data-type="tr" data-index="22">
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-23" data-type="tr" data-index="23">
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-24" data-type="tr" data-index="24">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            躁动
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-25" data-type="tr" data-index="25">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="5"
+            contenteditable="true"
+          >
+            活动能力
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            行动不稳
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+            rowspan="4"
+          >
+            不能自主活动不能自主活动不能自主活动不能自主活动不能自主活动不能自主活动不能自主活动不能自主活动不能自主活动
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-26" data-type="tr" data-index="26">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            偏瘫
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-27" data-type="tr" data-index="27">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            术后3d内
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-28" data-type="tr" data-index="28">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            行动正常
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-29" data-type="tr" data-index="29">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            不能自主活动
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-30" data-type="tr" data-index="30">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="3"
+            contenteditable="true"
+          >
+            固定方法
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            球囊固定
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-31" data-type="tr" data-index="31">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            缝合固定
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-32" data-type="tr" data-index="32">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            胶布固定
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-33" data-type="tr" data-index="33">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="2"
+            contenteditable="true"
+          >
+            导管不适
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            可耐受
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-34" data-type="tr" data-index="34">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            不可耐受
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-35" data-type="tr" data-index="35">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="2"
+            contenteditable="true"
+          >
+            沟通
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            能理解
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-36" data-type="tr" data-index="36">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            差，不配合
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-37" data-type="tr" data-index="37">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="text-align: center; vertical-align: middle"
+            rowspan="2"
+            contenteditable="true"
+          >
+            导管数量
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            0-3根
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-7"
+            data-type="td"
+            data-index="7"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-38" data-type="tr" data-index="38">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+          >
+            大于3根
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-0" data-type="tr" data-index="0">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            style="width: 150px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+            colspan="2"
+          >
+            总分
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            style="width: 100px; text-align: center; vertical-align: middle"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-1" data-type="tr" data-index="1">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+            colspan="2"
+          >
+            护理措施
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          >
+            <br /><br /><br />护理措施护理措施护理措施护理措施<br /><br /><br /><br />
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+        <tr class="editorTebleTr editorTebleTr-2" data-type="tr" data-index="2">
+          <td
+            class="editorTebleTd editorTebleTd-0"
+            data-type="td"
+            data-index="0"
+            contenteditable="true"
+            colspan="2"
+          >
+            护理签名
+          </td>
+          <td
+            class="editorTebleTd editorTebleTd-1"
+            data-type="td"
+            data-index="1"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-2"
+            data-type="td"
+            data-index="2"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-3"
+            data-type="td"
+            data-index="3"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-4"
+            data-type="td"
+            data-index="4"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-5"
+            data-type="td"
+            data-index="5"
+            contenteditable="true"
+          ></td>
+          <td
+            class="editorTebleTd editorTebleTd-6"
+            data-type="td"
+            data-index="6"
+            contenteditable="true"
+          ></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
