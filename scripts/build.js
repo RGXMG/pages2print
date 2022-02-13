@@ -35,7 +35,6 @@ const commonNormalPlugins = [
   }),
 ];
 
-
 /**
  * 生成每个item
  * 1. 返回包含处理过程中的必备参数配置

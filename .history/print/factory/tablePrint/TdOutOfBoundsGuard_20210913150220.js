@@ -6,7 +6,7 @@
  * Time: 15:25
  *
  */
-import { isTextNode } from "../../utils/elements";
+import { isTextNode } from '../../utils/elements';
 
 /**
  * 表格单元的越界守卫
@@ -39,8 +39,7 @@ export default class TdOutOfBoundsGuard {
     // 越界时重写
     let rewriteTdMeta = tdMeta;
     trMeta.append(tdElement);
-    const { isOutOfBounds, height, accommodateValue } =
-      this.validateOutOfBounds();
+    const { isOutOfBounds, height, accommodateValue } = this.validateOutOfBounds();
     if (isOutOfBounds) {
     }
     return { isOutOfBounds, rewriteTdMeta, newTrMeta };
@@ -55,14 +54,13 @@ export default class TdOutOfBoundsGuard {
   validateOutOfBounds(tdElement, tdMeta) {
     const { top, height } = tdElement.getBoundingClientRect();
     // tr距离页面页面顶部的距离 = 距离窗口的高度 + 自身的高度 + 滚动的高度
-    const tdBottom2Top =
-      top + height + this.printPageContainerElement.scrollTop;
+    const tdBottom2Top = top + height + this.printPageContainerElement.scrollTop;
     const isOutOfBounds = tdBottom2Top > this.pageHeightPixelSize;
     console.log(
       tdMeta,
-      "top:::",
+      'top:::',
       top,
-      "height",
+      'height',
       height,
       this.pageHeightPixelSize,
       top + height > this.pageHeightPixelSize
@@ -110,13 +108,11 @@ export default class TdOutOfBoundsGuard {
       const currentNodeSumHeight = heightSum + nodeSumHeight;
 
       // 当前节点计算后的sum高度的高度差
-      const currentNodeSumHeightDiffHeight =
-        currentNodeSumHeight - accommodateValue;
+      const currentNodeSumHeightDiffHeight = currentNodeSumHeight - accommodateValue;
 
       // 高度差小于precision
       if (currentNodeSumHeightDiffHeight < 0) {
-        Math.abs(currentNodeSumHeightDiffHeight) < precision &&
-          (hasResult = true);
+        Math.abs(currentNodeSumHeightDiffHeight) < precision && (hasResult = true);
         separateElements.pre.push(node);
         heightSum += nodeSumHeight;
         continue;
@@ -150,17 +146,11 @@ export default class TdOutOfBoundsGuard {
    * @param heightSum
    * @returns {{next: string, pre: *}}
    */
-  decomposeTextNode(
-    parentElement,
-    node,
-    precision,
-    accommodateValue,
-    heightSum
-  ) {
+  decomposeTextNode(parentElement, node, precision, accommodateValue, heightSum) {
     // 超出高度
     // 深入子元素进行计算高度
     // 1. text节点，采用二分法重新筛选
-    let separateTexts = { pre: node.nodeValue, next: "" };
+    let separateTexts = { pre: node.nodeValue, next: '' };
     let preHeight = 0;
     // 高度不在精度内，则继续分;
     while (heightSum + preHeight - accommodateValue > precision) {
@@ -208,12 +198,7 @@ export default class TdOutOfBoundsGuard {
    */
   getNormalNodeHeight(node) {
     if (isTextNode(node)) return node;
-    const { marginTop, marginBottom } =
-      document.defaultView.getComputedStyle(node);
-    return (
-      node.offsetHeight +
-      marginTop.replace("px", "") +
-      marginBottom.replace("px", "")
-    );
+    const { marginTop, marginBottom } = document.defaultView.getComputedStyle(node);
+    return node.offsetHeight + marginTop.replace('px', '') + marginBottom.replace('px', '');
   }
 }

@@ -167,10 +167,10 @@ module.exports = {
   plugins: [
     new VuePlugin(),
     new HtmlWebpackPlugin(),
-    new EslintWebpackPlugin({
-      extensions: ['.js', '.vue'],
-      failOnError: false,
-      emitError: false,
-    }),
+    // new EslintWebpackPlugin({
+    //   extensions: ['.js', '.vue'],
+    //   failOnError: false,
+    //   emitError: false,
+    // }),
   ],
 };

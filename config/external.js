@@ -7,13 +7,13 @@
  *
  */
 module.exports = {
-  "lodash-es": {
-    globalKey: "_"
+  'lodash-es': {
+    globalKey: '_',
   },
   elementUI: {
-    globalKey: "ELEMENT"
+    globalKey: 'ELEMENT',
   },
   vue: {
-    globalKey: "vue"
-  }
+    globalKey: 'vue',
+  },
 };

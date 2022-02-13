@@ -8,6 +8,7 @@
 
 <script>
 import createPrintProgram from '../lib/index';
+import { createContainerMeta } from '../lib/utils/containerMeta';
 export default {
   name: 'app',
   data() {
@@ -19,23 +20,32 @@ export default {
   methods: {
     onClick() {
       const json = [
+        ['cell 35', 'cell 36', 'cell 37', 'cell 38', 'cell 39'],
+        ['cell 35', 'cell 36', 'cell 37', 'cell 38', 'cell 39'],
+        ['cell 35', { rowspan: 4, content: 'cell 35 copy' }, 'cell 37', 'cell 38', 'cell 39'],
         // 45
-        ['cell1', 'cell 2', 'cell 3', 'cell 4', 'cell 5'],
+        ['cell1', createContainerMeta(), 'cell 3', 'cell 4', { rowspan: 4, content: 'content' }],
         [
           {
-            rowspan: 1,
+            rowspan: 2,
             content:
               'cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6cell 6',
           },
-          'cell 7',
+          createContainerMeta(),
           'cell 8',
           'cell 9',
-          'cell 10',
+          createContainerMeta(),
         ],
-        ['cell 11', 'cell 11', { rowspan: 4, content: 'cell 12' }, 'cell 13', 'cell 14'],
-        ['cell 11', 'cell 15', null, 'cell 16', 'cell 17'],
-        ['cell 11', 'cell 2cell', null, 'cell 19', 'cell 20'],
-        ['cell 21', 'cell 22', null, 'cell 23', 'cell 24'],
+        [
+          createContainerMeta(),
+          createContainerMeta(),
+          { rowspan: 4, content: 'cell 12' },
+          'cell 13',
+          createContainerMeta(),
+        ],
+        ['cell 11', 'cell 15', createContainerMeta(), 'cell 16', createContainerMeta()],
+        ['cell 11', 'cell 2cell', createContainerMeta(), 'cell 19', 'cell 20'],
+        ['cell 21', 'cell 22', createContainerMeta(), 'cell 23', 'cell 24'],
         ['cell 25', 'cell 26', 'cell 27', 'cell 28', 'cell 29'],
         ['cell 30', 'cell 31', 'cell 32', 'cell 33', 'cell 34'],
         ['cell 35', 'cell 36', 'cell 37', 'cell 38', 'cell 39'],
@@ -111,19 +121,19 @@ export default {
           border: solid 1mm #333;
         }
         td {
-          width: 50mm;
+          width: 20%;
         }
     `,
       });
       const div = document.createElement('div');
       div.style.backgroundColor = 'red';
-      div.style.height = '270mm';
+      div.style.height = '260mm';
       printInstance.createNormalContent(div).createTableContent({
         body: {
           content: json,
         },
       });
-      console.log(printInstance);
+      printInstance.execPrint();
     },
   },
 };
